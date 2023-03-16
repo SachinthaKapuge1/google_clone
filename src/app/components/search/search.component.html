@@ -1,0 +1,12 @@
+<div class="search-bar">
+    <div class="search-icon-tray">
+        <mat-icon class="search-icon">search_outline</mat-icon>
+    </div>
+    <input 
+        type="text"
+        [(ngModel)]="currentTermValue"
+        name="search-term"
+        value="{{currentTermValue}}"
+    >
+    <button type="submit" style="display: none;" (click)="submit(currentTermValue)"></button>
+</div>
