@@ -9,7 +9,7 @@
     <main>
         <img src="assets/google-icon.png" alt="google-icon">
         <div class="search-box">
-            <form>
+            <form #form="ngForm" (ngSubmit)="submit(form)">
                 <app-search></app-search>
             </form>
         </div>
