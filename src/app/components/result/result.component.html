@@ -4,8 +4,8 @@
             <img src="assets/google-icon.png" alt="google-icon" routerLink="/">
             <div class="top-header-left-search">
                 <div class="top-header-left-search-input">
-                    <form>
-                        <app-search></app-search>
+                    <form >
+                        <app-search (currentValue)="setSearchTerm($event)" [currentTermValue]="term"></app-search>
                     </form>                    
                 </div>
                 <div class="top-header-left-search-options">
@@ -50,7 +50,7 @@
 
     <main class="search-results" *ngIf="results?.items?.length">
         <div class="search-results-header">
-            <p>About {{results?.searchInformation?.formattedTotalResults}}} results ({{results?.searchInformation?.formattedSearchTime}})</p>
+            <p>About {{results?.searchInformation?.formattedTotalResults}} results ({{results?.searchInformation?.formattedSearchTime}})</p>
         </div>
 
         <ng-container *ngFor="let item of results?.items">

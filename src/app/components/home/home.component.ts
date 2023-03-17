@@ -9,15 +9,21 @@ import { Route, Router } from '@angular/router';
 })
 export class HomeComponent {
 
+  searchTerm:String='';
+
   constructor(
     private router:Router
   ){}
 
 
   submit(form:NgForm) {
-    const {search_term} = form.value;
-    this.router.navigateByUrl('/results',{state:{term:search_term}}).then();
-    console.log(search_term);
+
+    this.router.navigateByUrl('/results',{state:{term:this.searchTerm}}).then();
+    console.log(form.value);
   }
+
+  setSearchTerm($event: any) {
+    this.searchTerm=$event;
+    }
 
 }

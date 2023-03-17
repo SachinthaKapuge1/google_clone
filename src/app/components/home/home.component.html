@@ -10,7 +10,7 @@
         <img src="assets/google-icon.png" alt="google-icon">
         <div class="search-box">
             <form #form="ngForm" (ngSubmit)="submit(form)">
-                <app-search></app-search>
+                <app-search (currentValue)="setSearchTerm($event)"></app-search>
             </form>
         </div>
         <div class="g-buttons">

@@ -9,6 +9,7 @@ import { SearchService } from 'src/app/search.service';
   styleUrls: ['./result.component.scss']
 })
 export class ResultComponent implements OnInit,OnDestroy {
+
   
   active:boolean=true;
   results?:GoogleResponse;
@@ -29,13 +30,15 @@ export class ResultComponent implements OnInit,OnDestroy {
     }
   }
 
-
-
-
-
-
   ngOnDestroy(): void {
     this.subs.map(s=>s.unsubscribe());
   }
+
+  setSearchTerm($event: any) {
+    this.term=$event;
+    this.searchService.getSearchResult($event).subscribe((data:GoogleResponse):void=>{
+      this.results=data;
+    })
+    }
 
 }
